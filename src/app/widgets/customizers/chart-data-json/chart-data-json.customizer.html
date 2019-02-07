@@ -1,0 +1,105 @@
+<div id="main-container">
+  <div id="json-container">
+    <div
+      id="json-full-container"
+      [ngStyle]="{maxHeight: (showJson) ? '500px' : '0px'}"
+    >
+      <textarea
+        [value]="chartDataJson"
+        readonly
+      ></textarea>
+    </div>
+    <div id="json-buttons">
+      <div id="buttons-left">
+        <button
+          class="btn btn-primary"
+          (click)="showJson = !showJson"
+        >{{(showJson) ? 'Hide' : 'Show'}} Json</button>
+      </div>
+
+      <div id="buttons-right">
+        <button
+          class="btn btn-danger"
+          (click)="chartDataJson = ''"
+        >clear</button>
+
+        <button class="btn btn-warning">undo</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="tabs-container">
+    <div
+      class="tab"
+      (click)="dataType = 'Single'"
+      [class.selected]="dataType === 'Single'"
+    ><span>Single Series</span></div>
+    <div
+      class="tab"
+      (click)="dataType = 'Multi'"
+      [class.selected]="dataType === 'Multi'"
+    ><span>Multi Series</span></div>
+    <div
+      class="tab"
+      (click)="dataType = 'Bubble'"
+      [class.selected]="dataType === 'Bubble'"
+    ><span>Bubble Series</span></div>
+  </div>
+
+  <div
+    id="form-container"
+    [ngSwitch]="dataType"
+  >
+    <div id="form-header">
+      <h5>{{dataType}} Series</h5>
+      <button
+        class="btn btn-primary"
+        (click)="addData()"
+      >Add</button>
+    </div>
+
+    <ng-container *ngSwitchCase="'Single'">
+      <ng-container *ngTemplateOutlet="inputs"></ng-container>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'Multi'">
+      <div id="multi-wrapper">
+        <div class="multi-wrapper-top">
+          <div class="input-wrapper name-input-wrapper">
+            <input
+              type="text"
+              placeholder="Name"
+            />
+          </div>
+          <div class="filler-div"></div>
+        </div>
+        <div
+          style="padding-left: 0.75em;"
+          class="mutli-wrapper-bottom"
+        >
+          <ng-container *ngTemplateOutlet="inputs"></ng-container>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #inputs>
+  <div class="inputs-template-wrapper">
+    <div class="input-wrapper name-input-wrapper">
+      <input
+        type="text"
+        placeholder="Name"
+        [(ngModel)]="dataName"
+      />
+    </div>
+    <div class="input-wrapper value-input-wrapper">
+      <input
+        type="text"
+        placeholder="Value"
+        [(ngModel)]="dataValue"
+      />
+    </div>
+  </div>
+</ng-template>

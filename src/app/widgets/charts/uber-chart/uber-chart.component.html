@@ -1,0 +1,58 @@
+<div
+  id="options-container"
+  style="padding: 2em 0;"
+>
+  <div class="select">
+    <select
+      *ngIf="chartType === 'Bar Vertical' || chartType === 'Pie Chart'"
+      (change)="handleChartTypeChange($event.target.value)"
+    >
+      <option *ngFor="let type of singleChartTypes">{{type}}</option>
+    </select>
+
+    <select
+      *ngIf="chartType === 'Line Chart' || chartType === 'Area Chart'"
+      (change)="handleChartTypeChange($event.target.value)"
+    >
+      <option *ngFor="let type of multiChartTypes">{{type}}</option>
+    </select>
+  </div>
+</div>
+
+<ng-container [ngSwitch]="chartType">
+  <ngx-charts-bar-vertical
+    *ngSwitchCase="'Bar Vertical'"
+    [view]="view"
+    [scheme]="'cool'"
+    [results]="chartData"
+    [legend]="showLegend"
+  >
+  </ngx-charts-bar-vertical>
+
+  <ngx-charts-pie-chart
+    *ngSwitchCase="'Pie Chart'"
+    [view]="view"
+    [scheme]="'cool'"
+    [results]="chartData"
+    [legend]="showLegend"
+  >
+  </ngx-charts-pie-chart>
+
+  <ngx-charts-line-chart
+    *ngSwitchCase="'Line Chart'"
+    [view]="view"
+    [scheme]="'cool'"
+    [results]="chartData"
+    [legend]="showLegend"
+  >
+  </ngx-charts-line-chart>
+
+  <ngx-charts-area-chart
+    *ngSwitchCase="'Area Chart'"
+    [view]="view"
+    [scheme]="'cool'"
+    [results]="chartData"
+    [legend]="showLegend"
+  >
+  </ngx-charts-area-chart>
+</ng-container>

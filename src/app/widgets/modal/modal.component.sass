@@ -1,0 +1,42 @@
+.modal-container
+  background-color: rgba(0, 0, 0, 0.7)
+  position: fixed
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  z-index: 900
+  p,
+  span,
+  h2
+    color: #f7f7f7
+    margin-top: 0
+
+  .modal-wrapper
+    max-height: 100vh
+    width: 60%
+    background-color: #04142b
+    border-radius: 3px
+    padding: 2em
+    .modal-header
+      .modal-header-wrapper
+        display: flex
+        justify-content: space-between
+        align-items: center
+        .modal-close
+          color: #f7f7f7
+          font-size: 2em 
+          cursor: pointer
+
+    .modal-body
+      .modal-body-wrapper
+        padding: 2em 0
+
+    .modal-footer
+      .modal-footer-wrapper
+        display: flex
+        align-items: flex-end
+  

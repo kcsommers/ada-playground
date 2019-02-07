@@ -1,0 +1,27 @@
+<div
+  class="modal-container"
+  *ngIf="isOpen"
+>
+  <div class="modal-wrapper">
+    <div class="modal-header">
+      <div class="modal-header-wrapper">
+        <h2>Property Customizer</h2>
+        <span
+          class="modal-close"
+          (click)="close()"
+        >X</span>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-body-wrapper">
+        <ng-content></ng-content>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="modal-footer-wrapper">
+        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-danger">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

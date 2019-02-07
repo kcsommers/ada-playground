@@ -1,0 +1,34 @@
+<div style="padding: 5em;">
+  <div>
+    <button
+      (click)="Modal.isOpen = true"
+      class="btn btn-primary"
+    >Trigger Modal</button>
+  </div>
+  <div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+    <div style="padding: 2em 0">
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <ada-uber-chart
+          [chartType]="'Bar Vertical'"
+          [chartData]="singleData"
+          [showLegend]="false"
+        >
+        </ada-uber-chart>
+      </div>
+
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <ada-uber-chart
+          [chartType]="'Line Chart'"
+          [chartData]="multiData"
+          [showLegend]="false"
+        >
+        </ada-uber-chart>
+      </div>
+
+    </div>
+  </div>
+  <ada-modal #Modal>
+    <chart-data-json-customizer></chart-data-json-customizer>
+  </ada-modal>
+</div>
