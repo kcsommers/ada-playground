@@ -2,7 +2,7 @@ import { Component, OnInit, AfterContentInit, AfterViewInit, AfterViewChecked, C
 import { TableRow } from './table'
 import { TemplateMarkerDirective } from '../../directives/template-marker.directive';
 import { BaseWidgetComponent } from '../base-widget.component';
-import * as AllWidgets from '../public_api';
+import { WidgetService } from 'src/app/services/widget.service';
 
 @Component({
   selector: 'app-table',
@@ -45,7 +45,8 @@ export class TableComponent extends BaseWidgetComponent implements OnInit, After
     viewContainersArr.forEach((container) => {
       const componentRefArr: ComponentRef<any>[] = [];
       this.expandableRowItems.forEach((item) => {
-        const componentRef: ComponentRef<any> = container.createComponent(this.resolver.resolveComponentFactory(AllWidgets[item.widgetType]));
+        const widgetType = this.widgetService.getWidgetType(item.widgetSelector);
+        const componentRef: ComponentRef<any> = container.createComponent(this.resolver.resolveComponentFactory(widgetType));
         componentRefArr.push(componentRef);
         componentRef.changeDetectorRef.detectChanges();
       });
@@ -53,7 +54,7 @@ export class TableComponent extends BaseWidgetComponent implements OnInit, After
     });
   }
 
-  constructor(private resolver: ComponentFactoryResolver) {
+  constructor(private resolver: ComponentFactoryResolver, private widgetService: WidgetService) {
     super()
   }
 

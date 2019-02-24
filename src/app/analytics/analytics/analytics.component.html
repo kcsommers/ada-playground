@@ -1,10 +1,10 @@
 <div style="padding: 5em;">
   <app-table #Table (rowExpanded)="handleRowExpanded($event)">
-    <app-text *appTemplateMarker="'TextComponent'"></app-text>
+    <app-text *appTemplateMarker="'app-text'"></app-text>
 
-    <app-push-button *appTemplateMarker="'PushButtonComponent'"></app-push-button>
+    <app-push-button *appTemplateMarker="'app-push-button'"></app-push-button>
 
-    <app-uber-chart *appTemplateMarker="'UberChartComponent'"></app-uber-chart>
+    <app-uber-chart *appTemplateMarker="'app-uber-chart'"></app-uber-chart>
   </app-table>
 </div>
 
@@ -38,7 +38,7 @@
 
     </div>
   </div>
-  <ada-modal #Modal>
+  <app-modal #Modal>
     <chart-data-json-customizer></chart-data-json-customizer>
-  </ada-modal>
+  </app-modal>
 </div> -->

@@ -1,12 +1,17 @@
-import { Directive, TemplateRef, Input } from '@angular/core';
+import { Directive, TemplateRef, Input, HostListener, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[appTemplateMarker]'
 })
 export class TemplateMarkerDirective {
-  @Input('appTemplateMarker') widgetType: string;
+  @Input('appTemplateMarker') widgetSelector: string;
 
   constructor(
-    public template: TemplateRef<any>,
-  ) { }
+    public template: TemplateRef<any>
+  ) {
+
+  }
+
+  @HostListener('load') onload() {
+  }
 }
