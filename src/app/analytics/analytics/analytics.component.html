@@ -1,4 +1,14 @@
 <div style="padding: 5em;">
+  <app-table #Table (rowExpanded)="handleRowExpanded($event)">
+    <app-text *appTemplateMarker="'TextComponent'"></app-text>
+
+    <app-push-button *appTemplateMarker="'PushButtonComponent'"></app-push-button>
+
+    <app-uber-chart *appTemplateMarker="'UberChartComponent'"></app-uber-chart>
+  </app-table>
+</div>
+
+<!-- <div style="padding: 5em;">
   <div>
     <button
       (click)="Modal.isOpen = true"
@@ -9,21 +19,21 @@
 
     <div style="padding: 2em 0">
       <div style="display: flex; justify-content: center; align-items: center;">
-        <ada-uber-chart
+        <app-uber-chart
           [chartType]="'Bar Vertical'"
           [chartData]="singleData"
           [showLegend]="false"
         >
-        </ada-uber-chart>
+        </app-uber-chart>
       </div>
 
       <div style="display: flex; justify-content: center; align-items: center;">
-        <ada-uber-chart
+        <app-uber-chart
           [chartType]="'Line Chart'"
           [chartData]="multiData"
           [showLegend]="false"
         >
-        </ada-uber-chart>
+        </app-uber-chart>
       </div>
 
     </div>
@@ -31,4 +41,4 @@
   <ada-modal #Modal>
     <chart-data-json-customizer></chart-data-json-customizer>
   </ada-modal>
-</div>
+</div> -->

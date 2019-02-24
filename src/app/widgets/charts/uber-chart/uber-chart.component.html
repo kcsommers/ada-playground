@@ -5,14 +5,18 @@
   <div class="select">
     <select
       *ngIf="chartType === 'Bar Vertical' || chartType === 'Pie Chart'"
+      (click)="$event.stopPropagation()"
       (change)="handleChartTypeChange($event.target.value)"
+      [(value)]="chartType"
     >
       <option *ngFor="let type of singleChartTypes">{{type}}</option>
     </select>
 
     <select
       *ngIf="chartType === 'Line Chart' || chartType === 'Area Chart'"
+      (click)="$event.stopPropagation()"
       (change)="handleChartTypeChange($event.target.value)"
+      [(value)]="chartType"
     >
       <option *ngFor="let type of multiChartTypes">{{type}}</option>
     </select>
@@ -26,6 +30,12 @@
     [scheme]="'cool'"
     [results]="chartData"
     [legend]="showLegend"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
   >
   </ngx-charts-bar-vertical>
 
@@ -44,6 +54,12 @@
     [scheme]="'cool'"
     [results]="chartData"
     [legend]="showLegend"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
   >
   </ngx-charts-line-chart>
 
@@ -53,6 +69,12 @@
     [scheme]="'cool'"
     [results]="chartData"
     [legend]="showLegend"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
   >
   </ngx-charts-area-chart>
 </ng-container>

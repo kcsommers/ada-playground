@@ -1,0 +1,48 @@
+<div id="table-container">
+  <div class="table-row">
+    <div class="table-column-headers-container">
+      <div 
+        *ngFor="let spec of schema; let specIndex = index"
+        class="table-column-header"
+      >
+        <h5>{{spec}}</h5>
+      </div>
+    </div>
+  </div>
+
+  <div 
+    *ngFor="let row of rows; let rowIndex = index" 
+    class="table-row"
+    (click)="rowSelected(rowIndex)"
+  >
+    <div class="table-data-container">
+      <div class="table-data">
+          <p>{{row.name}}</p>
+        </div>
+        <div class="table-data">
+          <p>{{row.email}}</p>
+        </div>
+        <div class="table-data">
+          <p>{{row.startDate}}</p>
+        </div>
+        <div class="table-data">
+          <p>{{row.endDate}}</p>
+        </div>
+        <div class="table-data">
+          <p>${{row.startSalary}}</p>
+        </div>
+        <div class="table-data">
+          <p>${{row.endSalary}}</p>
+        </div>
+    </div>
+
+    <div 
+      class="expandable-row-container"
+      [class.expanded]="selectedRowIndexes.includes(rowIndex)"
+    >
+      <ng-container #viewContainer></ng-container>
+    </div>
+  </div>
+</div>
+<ng-content></ng-content>
+

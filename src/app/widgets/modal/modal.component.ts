@@ -1,9 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, forwardRef } from '@angular/core';
+import { BaseWidgetComponent } from '../base-widget.component';
 
 @Component({
   selector: 'ada-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.sass']
+  styleUrls: ['./modal.component.sass'],
+  providers: [{ provide: BaseWidgetComponent, useExisting: forwardRef(() => ModalComponent) }]
 })
 export class ModalComponent implements OnInit {
   @Input() isOpen = false;

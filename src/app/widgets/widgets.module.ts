@@ -7,11 +7,18 @@ import { ChartDataJsonCustomizerComponent } from './customizers/chart-data-json/
 import { ModalComponent } from './modal/modal.component';
 import { ClarityModule } from "@clr/angular";
 import { FormsModule } from '@angular/forms';
+import { TableComponent } from './table/table.component';
+import { SharedModule } from '../shared/shared.module';
+import { PushButtonComponent } from './push-button/push-button.component';
+import { TextComponent } from './text/text.component';
 
 const components = [
   UberChartComponent,
   ChartDataJsonCustomizerComponent,
-  ModalComponent
+  ModalComponent,
+  TableComponent,
+  PushButtonComponent,
+  TextComponent
 ];
 
 @NgModule({
@@ -21,8 +28,10 @@ const components = [
     NgxChartsModule,
     BrowserAnimationsModule,
     ClarityModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
-  exports: [...components]
+  exports: [...components],
+  entryComponents: [components]
 })
 export class WidgetsModule { }

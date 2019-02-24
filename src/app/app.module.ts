@@ -5,19 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { WidgetsModule } from './widgets/widgets.module';
 import { AnalyticsModule } from './analytics/analytics.module';
 import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AnalyticsModule,
     WidgetsModule,
-    ClarityModule
+    ClarityModule,
+    SharedModule
   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })

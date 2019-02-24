@@ -16,6 +16,11 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@app/widgets": [
+        "app/widgets/public_api.ts"
+      ]
+    }
   }
 }
